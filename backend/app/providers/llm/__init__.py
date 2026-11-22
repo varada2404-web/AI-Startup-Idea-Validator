@@ -1,1 +1,1 @@
-"""LLM provider package skeleton; no provider integration is configured."""
+"""Idea interpretation providers for the M1 Agent 1 pipeline."""
