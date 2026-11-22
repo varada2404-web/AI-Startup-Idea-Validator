@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#17151d">
+    <meta name="description" content="An evidence-first startup idea research workspace.">
+    <title>IdeaSignal — AI Research Studio</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <script type="module" src="/js/app.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">Skip to content</a>
+    <header class="topbar" id="top">
+      <a class="brand" href="#top" aria-label="IdeaSignal home">
+        <span class="brand-mark" aria-hidden="true">i</span>
+        <span>IdeaSignal<span class="brand-period">.</span></span>
+      </a>
+      <nav class="main-nav" aria-label="Main navigation">
+        <a href="#idea-studio">The studio</a>
+        <a href="#research-progress">Process</a>
+        <a id="nav-results-link" href="#results" hidden>Research brief</a>
+      </nav>
+      <div class="topbar-meta">
+        <span class="edition-tag">M1 · AGENT 01</span>
+        <span class="demo-badge" id="mode-badge"><span class="pulse-dot" aria-hidden="true"></span> CHECKING MODE</span>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero chapter-dark" id="idea-studio" aria-labelledby="page-title">
+        <div class="hero-grain" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-one" aria-hidden="true"></div>
+        <div class="hero-orb hero-orb-two" aria-hidden="true"></div>
+        <div class="hero-copy reveal">
+          <p class="eyebrow eyebrow-light"><span class="eyebrow-line"></span> AN IDEA IS A PLACE TO BEGIN</p>
+          <h1 id="page-title">Think it.<br><em>Test the shape</em><br>of it.</h1>
+          <p class="hero-intro">Bring a startup idea into the studio. We’ll turn it into a structured brief, open questions, and a bounded research plan.</p>
+          <p class="demo-notice" id="mode-notice"><strong>Checking application mode.</strong> Research sources will be labeled according to the selected provider.</p>
+          <a class="text-link" href="#idea-form">Enter the studio <span aria-hidden="true">↓</span></a>
+        </div>
+
+        <div class="validation-scene reveal" aria-label="Layered illustration of an idea and its research plan">
+          <div class="scene-halo" aria-hidden="true"></div>
+          <article class="float-card float-card-research" aria-label="Research plan card">
+            <span class="float-kicker">RESEARCH ANGLES</span>
+            <div class="mini-lines" aria-hidden="true"><i></i><i></i><i></i></div>
+            <span class="float-caption">Questions to explore</span>
+          </article>
+          <article class="float-card float-card-hypothesis" aria-label="Hypothesis card">
+            <span class="float-kicker">A QUESTION TO TEST</span>
+            <span class="float-serif">A question<br>to explore.</span>
+            <span class="unknown-pill">UNASSESSED</span>
+          </article>
+          <article class="float-card float-card-source" aria-label="Example research source card">
+            <span class="source-mark" aria-hidden="true">↗</span>
+            <span class="float-kicker">SOURCE NOTE</span>
+            <span class="float-caption" id="hero-source-caption">Example source · Not verified</span>
+          </article>
+
+          <div class="idea-card glass-card" id="idea-card">
+            <div class="idea-card-top">
+              <span class="card-index">FIELD NOTE <span>001</span></span>
+              <span class="card-status"><span class="status-dot status-idle" aria-hidden="true"></span> READY TO EXPLORE</span>
+            </div>
+            <div class="idea-card-heading">
+              <span class="eyebrow eyebrow-light">YOUR STARTING POINT</span>
+              <h2>What are you<br><em>imagining?</em></h2>
+            </div>
+            <form id="idea-form">
+              <label for="idea">Describe the problem and what you’d build</label>
+              <textarea id="idea" name="idea" minlength="20" maxlength="1000" required
+                placeholder="Example: A service that helps independent clinics reduce missed appointments with simple reminders."></textarea>
+              <div class="field-foot"><span>20–1,000 characters</span><span id="char-count">0 / 1,000</span></div>
+              <div class="field-row">
+                <div class="field-group">
+                  <label for="geography">Geography <span class="optional">Optional</span></label>
+                  <input id="geography" name="geography" maxlength="100" placeholder="India (default)">
+                </div>
+                <div class="field-group">
+                  <label for="target-customer">Target customer <span class="optional">Optional</span></label>
+                  <input id="target-customer" name="target_customer" maxlength="200" placeholder="Who has this problem?">
+                </div>
+              </div>
+              <button id="submit-button" type="submit" class="primary-button">
+                <span>Build my research brief</span><span class="button-arrow" aria-hidden="true">↗</span>
+              </button>
+              <p class="privacy-note" id="privacy-note">Your idea is sent to this application. Provider use depends on its configured mode.</p>
+            </form>
+          </div>
+          <span class="scene-index" aria-hidden="true">IDEA / 01</span>
+        </div>
+
+        <div class="hero-foot" aria-label="M1 workflow overview">
+          <span class="hero-foot-label">A RESEARCH STUDIO FOR EARLY IDEAS</span>
+          <div class="chapter-carousel">
+            <div class="chapter-rail" id="chapter-rail" role="region" aria-label="Research experience chapters" tabindex="0">
+            <a class="rail-card" href="#research-progress"><span>01</span><span>Understand<br>the idea</span><b aria-hidden="true">↗</b></a>
+            <a class="rail-card" href="#category-landscape"><span>02</span><span>Map the<br>questions</span><b aria-hidden="true">↗</b></a>
+            <a class="rail-card" id="rail-results-link" href="#results" hidden><span>03</span><span>Review the<br>research notes</span><b aria-hidden="true">↗</b></a>
+            </div>
+            <div class="rail-controls" aria-label="Carousel controls">
+              <button id="rail-prev" type="button" aria-label="Scroll carousel backward">←</button>
+              <button id="rail-next" type="button" aria-label="Scroll carousel forward">→</button>
+            </div>
+          </div>
+          <a class="scroll-cue" href="#research-progress"><span aria-hidden="true">↓</span> SCROLL TO EXPLORE</a>
+        </div>
+      </section>
+
+      <section class="progress-chapter chapter-lavender" id="research-progress" aria-labelledby="progress-title">
+        <div class="chapter-inner progress-layout">
+          <div class="progress-intro reveal">
+            <p class="eyebrow"><span class="eyebrow-line"></span> THE WORK IN MOTION</p>
+            <h2 id="progress-title">A considered<br><em>sequence.</em></h2>
+            <p>Follow the actual pipeline as it works through your idea. Stages and states below come from the validation run.</p>
+            <div class="run-error" id="run-error" role="alert" hidden></div>
+            <div class="run-id" id="run-id" hidden></div>
+          </div>
+          <div class="pipeline-panel reveal">
+            <div class="pipeline-head">
+              <div><span class="eyebrow">AGENT 01</span><h3>Validation pipeline</h3></div>
+              <span class="run-state-chip" id="run-status">Awaiting idea</span>
+            </div>
+            <div class="progress-summary"><span class="status-dot status-idle" aria-hidden="true"></span><span id="progress-message">The run’s current progress will appear here.</span></div>
+            <p class="pipeline-empty" id="pipeline-empty">Submit an idea to see its pipeline stages and live run state here.</p>
+            <ol class="stage-list" id="stage-list" aria-live="polite" aria-label="Validation pipeline stages"></ol>
+            <div class="pipeline-foot"><span class="pipeline-foot-mark" aria-hidden="true">IS</span><span>Pipeline stages are separate from the seven research categories.</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="results" class="results-chapter" aria-labelledby="results-title" aria-live="polite" hidden>
+        <div class="results-context" id="results-context" aria-label="Current validation run">
+          <div class="context-inner">
+            <div class="context-label"><span class="context-live" aria-hidden="true"></span><span>RESEARCH DOSSIER</span><span class="context-run-id" id="context-run-id"></span></div>
+            <p id="context-idea"></p>
+            <span class="demo-badge" id="results-mode-badge"><span class="pulse-dot" aria-hidden="true"></span> MODE PENDING</span>
+          </div>
+        </div>
+
+        <div class="chapter-inner results-inner">
+          <header class="results-heading reveal">
+            <div>
+              <p class="eyebrow"><span class="eyebrow-line"></span> YOUR M1 RESEARCH DOSSIER</p>
+              <h2 id="results-title">An idea, <em>examined.</em></h2>
+              <p class="results-notice" id="simulation-notice"></p>
+            </div>
+            <span class="results-edition">FIELD<br>NOTES<br><b>01</b></span>
+          </header>
+
+          <section class="editorial-grid section-reveal" aria-labelledby="brief-title">
+            <div class="section-marker"><span>A</span><span>01 / INTERPRETATION</span></div>
+            <article class="brief-sheet">
+              <div class="section-heading">
+                <div><p class="eyebrow">STRUCTURED IDEA BRIEF</p><h3 id="brief-title">The starting point</h3></div>
+                <span class="sheet-symbol" aria-hidden="true">✳</span>
+              </div>
+              <div id="brief-content" class="brief-content"></div>
+            </article>
+            <aside class="hypothesis-sheet">
+              <div class="section-heading">
+                <div><p class="eyebrow">QUESTIONS, NOT FINDINGS</p><h3>Five hypotheses</h3></div>
+              </div>
+              <p class="section-note">All five hypotheses remain unassessed in Agent 1, regardless of research retrieval.</p>
+              <div id="hypotheses-content" class="hypothesis-list"></div>
+            </aside>
+          </section>
+
+          <section id="category-landscape" class="landscape-section section-reveal" aria-labelledby="landscape-title">
+            <div class="section-marker"><span>B</span><span>02 / RESEARCH LANDSCAPE</span></div>
+            <div class="landscape-heading">
+              <div><p class="eyebrow">SEVEN RESEARCH CATEGORIES</p><h3 id="landscape-title">The questions<br>around the idea.</h3></div>
+              <p>Category coverage is computed from the source records returned for this run. It is not a market metric.</p>
+            </div>
+            <div id="coverage-grid" class="coverage-grid"></div>
+          </section>
+
+          <section class="queries-section section-reveal" aria-labelledby="queries-title">
+            <div class="section-marker"><span>C</span><span>03 / PLANNED QUERIES</span></div>
+            <div class="queries-panel">
+              <div class="queries-heading">
+                <div><p class="eyebrow">BOUNDED RESEARCH PLAN</p><h3 id="queries-title">Questions to take<br>into the field.</h3></div>
+                <span id="query-count" class="count-chip"></span>
+              </div>
+              <details class="query-details">
+                <summary><span>Explore planned queries</span><span class="details-icon" aria-hidden="true">+</span></summary>
+                <ol id="query-list" class="query-list"></ol>
+              </details>
+            </div>
+          </section>
+
+          <section class="sources-section section-reveal" aria-labelledby="sources-title">
+            <div class="section-marker"><span>D</span><span>04 / SOURCE LIBRARY</span></div>
+            <div class="sources-heading">
+              <div><p class="eyebrow" id="sources-eyebrow">SOURCE RECORDS</p><h3 id="sources-title">Research fragments.</h3></div>
+              <span id="source-count" class="count-chip"></span>
+            </div>
+            <p class="source-explainer" id="source-explainer">Retrieved or simulated records are research leads, not verified evidence. Long source text is collapsed until opened.</p>
+            <div id="source-groups" class="source-groups"></div>
+          </section>
+
+          <footer class="results-footer">
+            <span class="footer-mark">IdeaSignal<span>.</span></span>
+            <p id="results-footer-copy">M1 covers Agent 1: Web Search and Idea Understanding. Retrieval is not verification. Agents 2–6 and any verdict are outside this prototype.</p>
+            <a href="#top">Back to the beginning ↑</a>
+          </footer>
+        </div>
+      </section>
+
+      <footer class="page-footer" id="page-footer">
+        <span>IdeaSignal · AI Research Studio</span>
+        <span id="page-footer-copy">Agent 1 only · Research mode pending · No market conclusions</span>
+      </footer>
+    </main>
+  </body>
+</html>
