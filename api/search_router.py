@@ -56,7 +56,7 @@ class SingleSearchRequest(BaseModel):
 @router.post("/search")
 def run_market_research(
     payload: SearchRequest,
-    agent: TavilySearchAgent = Depends(get_agent),
+    agent: TavilySearchAgent = Depends(get_agent),  # noqa: B008
 ):
     """
     Run structured market research for a startup idea.
@@ -66,7 +66,7 @@ def run_market_research(
         result = agent.run(payload.idea, payload.max_results)
     except SearchError as exc:
         raise HTTPException(status_code=503, detail=str(exc))
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Unexpected error: {exc}")
 
     # Surface per-query errors as a warning but still return partial results
@@ -79,7 +79,7 @@ def run_market_research(
 @router.post("/search/single")
 def run_single_search(
     payload: SingleSearchRequest,
-    agent: TavilySearchAgent = Depends(get_agent),
+    agent: TavilySearchAgent = Depends(get_agent),  # noqa: B008
 ):
     """
     Run a single arbitrary Tavily search query.
@@ -89,7 +89,7 @@ def run_single_search(
         results = agent.search_single(payload.query, payload.max_results)
     except SearchError as exc:
         raise HTTPException(status_code=503, detail=str(exc))
-    except Exception as exc:
+    except Exception as exc:  # noqa: BLE001
         raise HTTPException(status_code=500, detail=f"Unexpected error: {exc}")
 
     return {"status": "success", "query": payload.query, "results": results}

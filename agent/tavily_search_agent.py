@@ -35,7 +35,6 @@ SEARCH_QUERIES_TEMPLATE = [
 
 class SearchError(Exception):
     """Raised when a Tavily search query fails."""
-    pass
 
 
 class TavilySearchAgent:

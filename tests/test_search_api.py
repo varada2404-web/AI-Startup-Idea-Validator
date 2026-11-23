@@ -4,15 +4,14 @@ Automated tests for Search API endpoints
 Run with:  pytest tests/ -v
 """
 
-from unittest.mock import MagicMock, patch
+from unittest.mock import MagicMock
 
 import pytest
 from fastapi.testclient import TestClient
 
-from api.search_router import _get_agent, get_agent, router
 from agent.tavily_search_agent import SearchError, TavilySearchAgent
+from api.search_router import _get_agent, get_agent
 from main import app
-
 
 MOCK_RUN_RESULT = {
     "idea": "AI resume screener",

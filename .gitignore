@@ -1,9 +1,29 @@
+# Secrets and local environment
 .env
+.env.*
+!.env.example
+
+# Python
 __pycache__/
+*.py[cod]
 *.pyc
 *.pyo
-.venv/
-venv/
 *.egg-info/
 dist/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+
+# Local run data and databases
+*.sqlite
+*.sqlite3
+*.db
+run_logs/
+data/local/
+
+# Editor and operating system files
+.vscode/
+.idea/
 .DS_Store
+Thumbs.db

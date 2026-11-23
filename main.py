@@ -5,6 +5,7 @@ Run with:  uvicorn main:app --reload --port 8001
 """
 
 from fastapi import FastAPI
+
 from api import router
 
 app = FastAPI(

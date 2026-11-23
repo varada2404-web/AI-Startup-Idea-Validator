@@ -11,7 +11,6 @@ import pytest
 
 from agent.tavily_search_agent import SearchError, TavilySearchAgent
 
-
 # ---------------------------------------------------------------------------
 # Fixtures
 # ---------------------------------------------------------------------------
@@ -161,7 +160,7 @@ class TestSearchResults:
 class TestErrorHandling:
     def test_search_error_raised_on_api_failure(self, agent, mock_tavily_client):
         """_search() must raise SearchError when Tavily API throws."""
-        mock_tavily_client.search.side_effect = Exception("API timeout")
+        mock_tavily_client.search.side_effect = RuntimeError("API timeout")
         with pytest.raises(SearchError, match="Tavily search failed"):
             agent.search_single("some query")
 
@@ -173,7 +172,7 @@ class TestErrorHandling:
             nonlocal call_count
             call_count += 1
             if call_count == 1:
-                raise Exception("Simulated failure on first query")
+                raise RuntimeError("Simulated failure on first query")
             return MOCK_TAVILY_RESULT
 
         mock_tavily_client.search.side_effect = side_effect
@@ -186,7 +185,7 @@ class TestErrorHandling:
 
     def test_all_queries_fail_gracefully(self, agent, mock_tavily_client):
         """run() must return structured errors if all queries fail."""
-        mock_tavily_client.search.side_effect = Exception("Network error")
+        mock_tavily_client.search.side_effect = RuntimeError("Network error")
         result = agent.run("test idea", max_results=1)
         assert len(result["errors"]) == 5
         for query_results in result["results"].values():
