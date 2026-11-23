@@ -7,11 +7,10 @@ endpoint, Harshita's architecture layer) can call it over HTTP.
 
 from functools import lru_cache
 
-from fastapi import APIRouter, Depends, HTTPException
-from pydantic import BaseModel, Field
-
 from agent import TavilySearchAgent
 from agent.tavily_search_agent import SearchError
+from fastapi import APIRouter, Depends, HTTPException
+from pydantic import BaseModel, Field
 
 router = APIRouter(prefix="/api", tags=["search"])
 

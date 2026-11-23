@@ -7,10 +7,10 @@ Run with:  pytest tests/ -v
 from unittest.mock import MagicMock
 
 import pytest
-from fastapi.testclient import TestClient
-
 from agent.tavily_search_agent import SearchError, TavilySearchAgent
 from api.search_router import _get_agent, get_agent
+from fastapi.testclient import TestClient
+
 from main import app
 
 MOCK_RUN_RESULT = {

@@ -8,7 +8,6 @@ from datetime import datetime
 from unittest.mock import MagicMock, patch
 
 import pytest
-
 from agent.tavily_search_agent import SearchError, TavilySearchAgent
 
 # ---------------------------------------------------------------------------
