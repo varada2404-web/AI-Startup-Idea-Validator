@@ -13,7 +13,6 @@ from app.agents.competitor_discovery import CompetitorDiscoveryAgent
 from app.agents.competitor_discovery.schemas import CompetitorReport
 from app.providers.search.base import SearchResult
 
-
 # ---------------------------------------------------------------------------
 # Helpers
 # ---------------------------------------------------------------------------
