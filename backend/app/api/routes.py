@@ -1,11 +1,14 @@
-"""M1 validation and health endpoints."""
+"""M1 validation and health endpoints, plus M2 Competitor Discovery."""
 
 import asyncio
 from datetime import UTC, datetime
 from uuid import uuid4
 
 from fastapi import APIRouter, HTTPException, Request, status
+from pydantic import BaseModel, Field
 
+from app.agents.competitor_discovery import CompetitorDiscoveryAgent
+from app.agents.competitor_discovery.schemas import CompetitorReport
 from app.pipeline.runner import PIPELINE_STAGES, PipelineRunner
 from app.pipeline.store import RunStore
 from app.schemas.contracts import (
@@ -16,6 +19,34 @@ from app.schemas.contracts import (
 )
 
 router = APIRouter(prefix="/api/v1")
+
+
+# ---------------------------------------------------------------------------
+# M2 — Competitor Discovery endpoint
+# ---------------------------------------------------------------------------
+
+
+class CompetitorRequest(BaseModel):
+    idea: str = Field(..., min_length=10, max_length=1000)
+
+
+@router.post("/competitors", response_model=CompetitorReport)
+async def discover_competitors(
+    payload: CompetitorRequest, request: Request
+) -> CompetitorReport:
+    """
+    Competitor Discovery and Comparison Agent (Milestone 2).
+    Returns existing players, their offerings, and identified market gaps.
+    """
+    provider = request.app.state.pipeline_runner.provider
+    agent = CompetitorDiscoveryAgent(search_provider=provider)
+    try:
+        return await agent.run(payload.idea)
+    except Exception as exc:
+        raise HTTPException(
+            status_code=status.HTTP_503_SERVICE_UNAVAILABLE,
+            detail={"code": "competitor_search_failed", "message": str(exc)},
+        ) from exc
 
 
 @router.post(
